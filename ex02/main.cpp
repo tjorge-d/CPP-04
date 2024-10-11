@@ -1,3 +1,4 @@
+#include "FixedAnimal.hpp"
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
@@ -6,8 +7,8 @@ void	test1()
 {
 	std::cout << "\n==========| TEST 1 |==========\n\n";
 
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	const FixedAnimal* j = new Dog();
+	const FixedAnimal* i = new Cat();
 
 	delete j;
 	delete i;
@@ -18,7 +19,7 @@ void	test2()
 	std::cout << "\n==========| TEST 2 |==========\n\n";
 
 	std::cout << "Construction:\n";
-	Animal	*veterinary[]= 
+	FixedAnimal	*veterinary[]= 
 	{
 		new Cat(),
 		new Cat(),
@@ -63,10 +64,28 @@ void	test3()
 	delete copy_cat;
 }
 
+void	test4()
+{
+	std::cout << "\n==========| TEST 4 |==========\n\n";
+
+	// FixedAnimal	*ChupaCabra = new FixedAnimal();
+	Animal		*Gambuzino = new Animal();
+	FixedAnimal	*ChupaCabra = new Cat();
+
+	std::cout << std::endl;
+	Gambuzino->makeSound();
+	ChupaCabra->makeSound();
+	std::cout << std::endl;
+	
+	delete Gambuzino;
+	delete ChupaCabra;
+}
+
 int main()
 {
 	test1();
 	test2();
 	test3();
+	test4();
 	return 0;
 }

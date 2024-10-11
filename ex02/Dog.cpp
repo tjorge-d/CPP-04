@@ -2,14 +2,14 @@
 
 // CONSTRUCTORS & DESTRUCTORS
 
-Dog::Dog() : Animal()
+Dog::Dog() : FixedAnimal()
 {
 	std::cout << "Dog default constructor called\n";
 	_type = "Dog";
 	_brain = new Brain();
 }
 
-Dog::Dog(const Dog &copy) : Animal(copy)
+Dog::Dog(const Dog &copy) : FixedAnimal(copy)
 {
 	std::cout << "Dog copy constructor called\n";
 	_brain = new Brain();

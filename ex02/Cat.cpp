@@ -2,14 +2,14 @@
 
 // CONSTRUCTORS & DESTRUCTORS
 
-Cat::Cat() : Animal()
+Cat::Cat() : FixedAnimal()
 {
 	std::cout << "Cat default constructor called\n";
 	_type = "Cat";
 	_brain = new Brain();
 }
 
-Cat::Cat(const Cat &copy) : Animal(copy)
+Cat::Cat(const Cat &copy) : FixedAnimal(copy)
 {
 	std::cout << "Cat copy constructor called\n";
 	_brain = new Brain();
