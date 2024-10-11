@@ -1,7 +1,7 @@
 NAME= ex03
 
 CXX= c++
-CXXFLAGS= -Wall -Werror -Wextra -std=c++98 #-g
+CXXFLAGS= -Wall -Werror -Wextra -std=c++98 -g
 
 SRC= AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp main.cpp
 

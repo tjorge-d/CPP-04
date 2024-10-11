@@ -24,7 +24,7 @@ Brain::~Brain()
 
 std::string	Brain::getIdea(unsigned int index)const
 {
-	if (index >= 0 && index < 100)
+	if (index < 100)
 		return (_ideas[index]);
 	return (NULL);
 }
@@ -33,7 +33,7 @@ std::string	Brain::getIdea(unsigned int index)const
 
 void	Brain::setIdea(unsigned int index, std::string idea)
 {
-	if (index >= 0 && index < 100)
+	if (index < 100)
 		_ideas[index] = idea;
 }
 

@@ -11,7 +11,9 @@ MateriaSource::MateriaSource()
 
 MateriaSource::MateriaSource(const MateriaSource &copy)
 {
-	//std::cout << "MateriaSource copy constructor called\n";
+	std::cout << "MateriaSource copy constructor called\n";
+	for (int i = 0; i < 4; i++)
+		_clones[i] = NULL;
 	*this = copy;
 }
 
@@ -29,14 +31,14 @@ MateriaSource::~MateriaSource()
 
 MateriaSource&	MateriaSource::operator=(const MateriaSource &copy)
 {
-	//std::cout << "MateriaSource copy assignment operator called\n";
+	std::cout << "MateriaSource copy assignment operator called\n";
 	for (int i = 0; i < 4; i++)
 	{
 		if(_clones[i])
 			delete _clones[i];
 		_clones[i] = NULL;
 		if (copy._clones[i])
-			_clones[i] = copy._clones[i]->clone();
+			_clones[i] = copy._clones[i]->clone(); 
 	}
 	return (*this);
 }
@@ -67,9 +69,9 @@ AMateria*	MateriaSource::createMateria(std::string const & type)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (type == _clones[i]->getType())
+		if ( _clones[i] && type == _clones[i]->getType())
 		{
-			std::cout << "Materia Source > * Cloned \"" << type << "\" Materia *\n";
+			std::cout << "Materia Source > * Created \"" << type << "\" Materia *\n";
 			return (_clones[i]->clone());
 		}
 	}

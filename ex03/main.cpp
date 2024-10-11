@@ -4,13 +4,6 @@
 #include "Cure.hpp"
 #include "Ice.hpp"
 
-void	test2()
-{
-	std::cout << "\n==========| TEST 2 |==========\n\n";
-
-	IMateriaSource* src = new MateriaSource();
-}
-
 void	test1()
 {
 	std::cout << "\n==========| TEST 1 |==========\n\n";
@@ -32,7 +25,35 @@ void	test1()
 	delete src;
 }
 
+void	test2()
+{
+	std::cout << "\n==========| TEST 2 |==========\n\n";
+
+	MateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	MateriaSource* copy = new MateriaSource(*src);
+	//MateriaSource* copy = new MateriaSource();
+	//*copy = *src;
+	copy->learnMateria(new Cure());
+
+	std::cout << "\nsrc ("<< src <<") :\n";
+	AMateria *t1 = src->createMateria("cure");
+
+	std::cout << "\ncopy ("<< copy <<") :\n";
+	AMateria *t2 = copy->createMateria("ice");
+
+	delete src;
+	std::cout << "\nDeleted src and still can use copy:\n";
+	AMateria *t3 = copy->createMateria("ice");
+
+	delete copy;
+	delete t1;
+	delete t2;
+	delete t3;
+}
+
 int main()
 {
 	test1();
+	test2();
 }
